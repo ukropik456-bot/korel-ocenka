@@ -6,14 +6,15 @@ const STATIC = {
   purchasesSum: "12 млн руб.",
   contracts: 166,
   contractsSum: "13 млн руб.",
+  yearsLabel: "10+ лет в реестре",
   winPct: 82,
   notDefinedPct: 10,
   losePct: 8,
   totalTenders: 170,
   topClients: [
-    { name: "ТУ Росимущества в Иркутской области",                 amount: "932 000 ₽", pct: 100 },
-    { name: "МТУ Росимущества в Алтайском Крае и Республике Алтай", amount: "816 750 ₽", pct: 88  },
-    { name: "МТУ Росимущества в Челябинской и Курганской Областях", amount: "650 000 ₽", pct: 70  },
+    { name: "ТУ Росимущества в Иркутской области", amount: "932 000 ₽", pct: 100 },
+    { name: "МТУ Росимущества в Алтайском Крае и Республике Алтай", amount: "816 750 ₽", pct: 88 },
+    { name: "МТУ Росимущества в Челябинской и Курганской Областях", amount: "650 000 ₽", pct: 70 },
   ],
   categories: [
     "Финансы и консалтинг",
@@ -29,6 +30,7 @@ const DonutChart = ({ segments, size = 160, stroke = 22 }) => {
   const circ = 2 * Math.PI * r;
   const cx = size / 2;
   const cy = size / 2;
+
   let offset = 0;
   const slices = segments.map((s) => {
     const dash = (s.pct / 100) * circ;
@@ -37,13 +39,20 @@ const DonutChart = ({ segments, size = 160, stroke = 22 }) => {
     offset += dash;
     return slice;
   });
+
   return (
     <svg width={size} height={size} style={{ transform: "rotate(-90deg)" }}>
       {slices.map((s, i) => (
-        <circle key={i} cx={cx} cy={cy} r={r} fill="none"
-          stroke={s.color} strokeWidth={stroke}
+        <circle
+          key={i}
+          cx={cx} cy={cy} r={r}
+          fill="none"
+          stroke={s.color}
+          strokeWidth={stroke}
           strokeDasharray={`${s.dash} ${s.gap}`}
-          strokeDashoffset={-s.offset} strokeLinecap="butt" />
+          strokeDashoffset={-s.offset}
+          strokeLinecap="butt"
+        />
       ))}
     </svg>
   );
@@ -54,8 +63,8 @@ const GosTenders = () => {
 
   useEffect(() => {
     fetch("/api/tenders")
-      .then(r => r.json())
-      .then(d => setData(d))
+      .then((r) => r.json())
+      .then((d) => setData(d))
       .catch(() => setData(STATIC));
   }, []);
 
@@ -69,6 +78,7 @@ const GosTenders = () => {
     <section className="section" style={{ background: "var(--plum)", borderTop: "1px solid rgba(196,162,44,.12)", borderBottom: "1px solid rgba(196,162,44,.12)" }}>
       <div className="section-inner">
 
+        {/* Шапка */}
         <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: 52, flexWrap: "wrap", gap: 20 }}>
           <div>
             <div className="section-tag">Прозрачность и репутация</div>
@@ -78,8 +88,13 @@ const GosTenders = () => {
             </p>
           </div>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 10 }}>
-            <a href="https://www.rusprofile.ru/id/7132258" target="_blank" rel="noopener noreferrer"
-              className="btn-ghost" style={{ textDecoration: "none" }}>
+            <a
+              href="https://www.rusprofile.ru/id/7132258"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-ghost"
+              style={{ textDecoration: "none" }}
+            >
               Rusprofile.ru
               <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
                 <path d="M9 1L13 5M13 5L9 9M13 5H1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
@@ -91,6 +106,7 @@ const GosTenders = () => {
           </div>
         </div>
 
+        {/* Верхние метрики */}
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 2, marginBottom: 2 }}>
           {[
             { num: String(data.purchases), label: "закупки",             sub: `на сумму ${data.purchasesSum}` },
@@ -98,14 +114,19 @@ const GosTenders = () => {
             { num: "10+",                  label: "лет в реестре",       sub: "подтверждённый опыт"           },
           ].map((m, i) => (
             <div key={i} style={{ background: "rgba(58,24,51,.45)", border: "1px solid rgba(196,162,44,.15)", padding: "32px 28px" }}>
-              <div style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 52, fontWeight: 300, color: "var(--gold)", lineHeight: 1 }}>{m.num}</div>
+              <div style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 52, fontWeight: 300, color: "var(--gold)", lineHeight: 1 }}>
+                {m.num}
+              </div>
               <div style={{ fontSize: 18, fontWeight: 500, color: "var(--cream)", marginTop: 6 }}>{m.label}</div>
               <div style={{ fontSize: 15, fontWeight: 300, color: "rgba(245,240,230,.5)", marginTop: 4 }}>{m.sub}</div>
             </div>
           ))}
         </div>
 
+        {/* Центральный блок: диаграмма + топ клиентов */}
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 2, marginBottom: 2 }}>
+
+          {/* Диаграмма */}
           <div style={{ background: "rgba(58,24,51,.45)", border: "1px solid rgba(196,162,44,.15)", padding: "36px 32px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
             <div style={{ fontSize: 15, fontWeight: 400, letterSpacing: ".1em", textTransform: "uppercase", color: "var(--gold)", marginBottom: 28 }}>Статус закупок</div>
             <div style={{ display: "flex", alignItems: "center", gap: 40 }}>
@@ -132,6 +153,7 @@ const GosTenders = () => {
             </div>
           </div>
 
+          {/* Топ заказчиков */}
           <div style={{ background: "rgba(58,24,51,.45)", border: "1px solid rgba(196,162,44,.15)", padding: "36px 32px" }}>
             <div style={{ fontSize: 15, fontWeight: 400, letterSpacing: ".1em", textTransform: "uppercase", color: "var(--gold)", marginBottom: 28 }}>Топ-3 заказчика</div>
             <div style={{ display: "flex", flexDirection: "column", gap: 22 }}>
@@ -150,13 +172,23 @@ const GosTenders = () => {
           </div>
         </div>
 
+        {/* Категории */}
         <div style={{ background: "rgba(58,24,51,.45)", border: "1px solid rgba(196,162,44,.15)", padding: "28px 32px", display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap" }}>
           <span style={{ fontSize: 15, fontWeight: 400, letterSpacing: ".1em", textTransform: "uppercase", color: "var(--gold)", flexShrink: 0 }}>Категории:</span>
           {data.categories.map((cat, i) => (
-            <span key={i} style={{ padding: "6px 16px", border: "1px solid rgba(196,162,44,.25)", background: "rgba(196,162,44,.08)", fontSize: 15, fontWeight: 300, color: "rgba(245,240,230,.75)", letterSpacing: ".02em" }}>{cat}</span>
+            <span key={i} style={{
+              padding: "6px 16px",
+              border: "1px solid rgba(196,162,44,.25)",
+              background: "rgba(196,162,44,.08)",
+              fontSize: 15,
+              fontWeight: 300,
+              color: "rgba(245,240,230,.75)",
+              letterSpacing: ".02em",
+            }}>{cat}</span>
           ))}
         </div>
 
+        {/* Пометка об источнике */}
         <div style={{ marginTop: 16, display: "flex", alignItems: "center", gap: 6 }}>
           <svg width="13" height="13" viewBox="0 0 13 13" fill="none" style={{ flexShrink: 0, opacity: .4 }}>
             <circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" strokeWidth="1"/>
@@ -164,8 +196,12 @@ const GosTenders = () => {
           </svg>
           <span style={{ fontSize: 13, fontWeight: 300, color: "rgba(245,240,230,.35)", letterSpacing: ".03em" }}>
             Данные получены из открытых источников —{" "}
-            <a href="https://www.rusprofile.ru/id/7132258" target="_blank" rel="noopener noreferrer"
-              style={{ color: "rgba(196,162,44,.5)", textDecoration: "none", borderBottom: "1px solid rgba(196,162,44,.25)" }}>
+            <a
+              href="https://www.rusprofile.ru/id/7132258"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "rgba(196,162,44,.5)", textDecoration: "none", borderBottom: "1px solid rgba(196,162,44,.25)" }}
+            >
               rusprofile.ru
             </a>
             {" "}и реестра государственных закупок РФ.

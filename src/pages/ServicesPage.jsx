@@ -18,12 +18,12 @@ const ServicesPage = ({ setPage }) => {
   ];
 
   const filters = [
-    { id: "all",       label: "Все услуги" },
-    { id: "realty",    label: "Недвижимость" },
-    { id: "special",   label: "Судебные / Изъятие" },
+    { id: "all", label: "Все услуги" },
+    { id: "realty", label: "Недвижимость" },
+    { id: "special", label: "Судебные / Изъятие" },
     { id: "transport", label: "Транспорт" },
-    { id: "business",  label: "Бизнес и активы" },
-    { id: "other",     label: "Прочее" },
+    { id: "business", label: "Бизнес и активы" },
+    { id: "other", label: "Прочее" },
   ];
 
   const filtered = activeFilter === "all" ? services : services.filter(s => s.cat === activeFilter);
@@ -63,7 +63,10 @@ const ServicesPage = ({ setPage }) => {
           <div className="services-all-grid">
             {filtered.map((s, i) => (
               <div key={i} className="service-card-full" onClick={() => setPage("application")}>
-                <div className="service-card-full-bg" style={{ backgroundImage: `url(${s.img})` }} />
+                <div
+                  className="service-card-full-bg"
+                  style={s.img ? { backgroundImage: `url(${s.img})` } : {}}
+                />
                 <div className="service-card-full-overlay" />
                 <div className="service-card-full-body">
                   <div className="service-price-tag">{s.price}</div>

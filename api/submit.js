@@ -2,8 +2,13 @@ import { sql } from "@vercel/postgres";
 
 export default async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
-  if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
+
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Method not allowed" });
+  }
+
   try {
+    // Создаём таблицу если её ещё нет
     await sql`
       CREATE TABLE IF NOT EXISTS applications (
         id        SERIAL PRIMARY KEY,
@@ -15,12 +20,18 @@ export default async function handler(req, res) {
         created_at TIMESTAMPTZ DEFAULT NOW()
       )
     `;
+
     const { name, phone, email, service, comment } = req.body;
-    if (!name || !phone) return res.status(400).json({ error: "Имя и телефон обязательны" });
+
+    if (!name || !phone) {
+      return res.status(400).json({ error: "Имя и телефон обязательны" });
+    }
+
     await sql`
       INSERT INTO applications (name, phone, email, service, comment)
       VALUES (${name}, ${phone}, ${email || null}, ${service || null}, ${comment || null})
     `;
+
     res.status(200).json({ ok: true });
   } catch (err) {
     console.error("DB error:", err);

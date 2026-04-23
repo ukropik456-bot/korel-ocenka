@@ -341,15 +341,27 @@ body {
   background-color: rgba(58,24,51,.9);
   transition: transform .5s ease;
 }
-.service-card:hover .service-card-bg { transform: scale(1.06); }
+.service-card:hover .service-card-bg {
+  transform: scale(1.06);
+}
 .service-card-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(10,5,15,.92) 0%, rgba(10,5,15,.55) 50%, rgba(10,5,15,.2) 100%);
+  background: linear-gradient(
+    to top,
+    rgba(10,5,15,.92) 0%,
+    rgba(10,5,15,.55) 50%,
+    rgba(10,5,15,.2) 100%
+  );
   transition: background .35s ease;
 }
 .service-card:hover .service-card-overlay {
-  background: linear-gradient(to top, rgba(10,5,15,.96) 0%, rgba(10,5,15,.65) 55%, rgba(10,5,15,.3) 100%);
+  background: linear-gradient(
+    to top,
+    rgba(10,5,15,.96) 0%,
+    rgba(10,5,15,.65) 55%,
+    rgba(10,5,15,.3) 100%
+  );
 }
 .service-card-body {
   position: relative;
@@ -655,15 +667,27 @@ textarea.form-input { resize: vertical; min-height: 120px; }
   background-color: rgba(40,18,38,.95);
   transition: transform .5s ease;
 }
-.service-card-full:hover .service-card-full-bg { transform: scale(1.06); }
+.service-card-full:hover .service-card-full-bg {
+  transform: scale(1.06);
+}
 .service-card-full-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(10,5,15,.95) 0%, rgba(10,5,15,.55) 55%, rgba(10,5,15,.15) 100%);
+  background: linear-gradient(
+    to top,
+    rgba(10,5,15,.95) 0%,
+    rgba(10,5,15,.55) 55%,
+    rgba(10,5,15,.15) 100%
+  );
   transition: background .35s ease;
 }
 .service-card-full:hover .service-card-full-overlay {
-  background: linear-gradient(to top, rgba(10,5,15,.98) 0%, rgba(10,5,15,.65) 60%, rgba(10,5,15,.25) 100%);
+  background: linear-gradient(
+    to top,
+    rgba(10,5,15,.98) 0%,
+    rgba(10,5,15,.65) 60%,
+    rgba(10,5,15,.25) 100%
+  );
 }
 .service-card-full-body {
   position: relative;
