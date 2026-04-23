@@ -153,7 +153,7 @@ const ApplicationPage = () => {
                     Или позвоните напрямую
                   </div>
                   <div style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 32, fontWeight: 300, color: "var(--gold)" }}>
-                    +7 (xxx) xxx-xx-xx
+                    +7 (905) 101-18-81
                   </div>
                   <div style={{ fontSize: 15, color: "rgba(245,240,230,.4)", marginTop: 4 }}>Ежедневно 7:00 – 21:00</div>
                 </div>

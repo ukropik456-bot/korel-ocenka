@@ -21,7 +21,7 @@ const Page404 = ({ setPage }) => (
           Или свяжитесь с нами
         </div>
         <div style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 32, fontWeight: 300, color: "var(--gold)" }}>
-          +7 (xxx) xxx-xx-xx
+          +7 (905) 101-18-81
         </div>
       </div>
     </div>

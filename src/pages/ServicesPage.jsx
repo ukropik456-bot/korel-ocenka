@@ -70,18 +70,8 @@ const ServicesPage = ({ setPage }) => {
                 <div className="service-card-full-overlay" />
                 <div className="service-card-full-body">
                   <div className="service-price-tag">{s.price}</div>
-                  <div style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 25, fontWeight: 500, marginBottom: ".6rem", lineHeight: 1.2, marginTop: 10 }}>
+                  <div style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 25, fontWeight: 500, lineHeight: 1.2, marginTop: 10 }}>
                     {s.name}
-                  </div>
-                  <div style={{ fontSize: 15, fontWeight: 300, color: "rgba(245,240,230,.65)", lineHeight: 1.65, marginBottom: 16 }}>
-                    {s.desc}
-                  </div>
-                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 12 }}>
-                    <div style={{ fontSize: 15, color: "rgba(245,240,230,.4)", letterSpacing: ".06em" }}>⏱ {s.time}</div>
-                    <button className="btn-ghost" onClick={e => { e.stopPropagation(); setPage("application"); }}>
-                      Заказать
-                      <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M9 1L13 5M13 5L9 9M13 5H1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" /></svg>
-                    </button>
                   </div>
                 </div>
               </div>

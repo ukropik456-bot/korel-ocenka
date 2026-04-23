@@ -96,9 +96,7 @@ const HomePage = ({ setPage }) => {
                 />
                 <div className="service-card-overlay" />
                 <div className="service-card-body">
-                  <div className="service-icon">{s.icon}</div>
                   <div className="service-name">{s.name}</div>
-                  <div className="service-desc">{s.desc}</div>
                   <div className="service-price">{s.price}</div>
                 </div>
               </div>

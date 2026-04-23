@@ -38,7 +38,7 @@ const Footer = ({ setPage }) => (
         <div>
           <div className="footer-title">Контакты</div>
           <div style={{ fontSize: 16, fontWeight: 300, color: "rgba(245,240,230,.55)", lineHeight: 2 }}>
-            <div style={{ color: "var(--gold)", fontWeight: 500, fontSize: 18, marginBottom: 4 }}>+7 (xxx) xxx-xx-xx</div>
+            <div style={{ color: "var(--gold)", fontWeight: 500, fontSize: 18, marginBottom: 4 }}>+7 (905) 101-18-81</div>
             <div>Ежедневно 7:00 — 21:00</div>
             <div>Работаем по всей России</div>
             <div style={{ marginTop: 12 }}>info@korel-ocenka.ru</div>
