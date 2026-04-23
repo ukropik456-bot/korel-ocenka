@@ -107,7 +107,7 @@ const GosTenders = () => {
         </div>
 
         {/* Верхние метрики */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 2, marginBottom: 2 }}>
+        <div className="gt-metrics-grid">
           {[
             { num: String(data.purchases), label: "закупки",             sub: `на сумму ${data.purchasesSum}` },
             { num: String(data.contracts), label: "контракта заключено", sub: `на сумму ${data.contractsSum}` },
@@ -124,7 +124,7 @@ const GosTenders = () => {
         </div>
 
         {/* Центральный блок: диаграмма + топ клиентов */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 2, marginBottom: 2 }}>
+        <div className="gt-center-grid">
 
           {/* Диаграмма */}
           <div style={{ background: "rgba(58,24,51,.45)", border: "1px solid rgba(196,162,44,.15)", padding: "36px 32px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
