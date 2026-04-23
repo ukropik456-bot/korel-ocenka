@@ -4,27 +4,26 @@ const ServicesPage = ({ setPage }) => {
   const [activeFilter, setActiveFilter] = useState("all");
 
   const services = [
-    { cat: "realty", icon: "🏠", name: "Оценка квартиры", desc: "Для ипотеки, купли-продажи, налогообложения, вступления в наследство.", price: "от 3 500 ₽", time: "1 день" },
-    { cat: "realty", icon: "🏡", name: "Оценка дома и коттеджа", desc: "Жилые дома, дачи, загородные коттеджи. Земля в составе объекта или отдельно.", price: "от 7 000 ₽", time: "2 дня" },
-    { cat: "realty", icon: "🏢", name: "Коммерческая недвижимость", desc: "Офисные, торговые, складские и производственные помещения.", price: "от 15 000 ₽", time: "3 дня" },
-    { cat: "realty", icon: "🌲", name: "Оценка земельного участка", desc: "ИЖС, СНТ, сельхозугодья, участки под коммерческую застройку.", price: "от 5 000 ₽", time: "2 дня" },
-    { cat: "special", icon: "⚖️", name: "Оценка для суда", desc: "Независимая судебная экспертиза и оценочные заключения для судебных разбирательств.", price: "от 10 000 ₽", time: "3 дня" },
-    { cat: "special", icon: "🔨", name: "Оценка при изъятии", desc: "Определение размера возмещения при изъятии имущества для государственных нужд.", price: "15 000 ₽", time: "5 дней" },
-    { cat: "special", icon: "🏚", name: "Оценка при сносе жилья", desc: "Ветхое и аварийное жильё, участки в зонах реновации.", price: "от 15 000 ₽", time: "3 дня" },
-    { cat: "transport", icon: "🚗", name: "Оценка автомобиля", desc: "Легковые автомобили для продажи, страхования, нотариуса, суда.", price: "от 3 000 ₽", time: "1 день" },
-    { cat: "transport", icon: "🚛", name: "Оценка грузового транспорта", desc: "Грузовики, автобусы, прицепы, специальная техника и оборудование.", price: "от 5 000 ₽", time: "2 дня" },
-    { cat: "business", icon: "💼", name: "Оценка бизнеса", desc: "Оценка компаний и предприятий для сделок, залога, реструктуризации.", price: "от 30 000 ₽", time: "7 дней" },
-    { cat: "business", icon: "📊", name: "Оценка ценных бумаг", desc: "Акции, доли в ООО, векселя, облигации и прочие финансовые активы.", price: "от 20 000 ₽", time: "5 дней" },
-    { cat: "other", icon: "🐄", name: "Оценка крупного рогатого скота", desc: "Рыночная оценка сельскохозяйственных животных для страхования и учёта.", price: "от 7 000 ₽", time: "2 дня" },
+    { cat: "realty",    img: "/images/services/house.jpg",      icon: "🏡", name: "Оценка дома и коттеджа",        desc: "Жилые дома, дачи, загородные коттеджи. Земля в составе объекта или отдельно.", price: "от 7 000 ₽",  time: "2 дня"  },
+    { cat: "realty",    img: "/images/services/commercial.jpg", icon: "🏢", name: "Коммерческая недвижимость",     desc: "Офисные, торговые, складские и производственные помещения.", price: "от 15 000 ₽", time: "3 дня"  },
+    { cat: "realty",    img: "/images/services/land.jpg",       icon: "🌲", name: "Оценка земельного участка",     desc: "ИЖС, СНТ, сельхозугодья, участки под коммерческую застройку.", price: "от 5 000 ₽",  time: "2 дня"  },
+    { cat: "special",   img: "/images/services/court.jpg",      icon: "⚖️", name: "Оценка для суда",               desc: "Независимая судебная экспертиза и оценочные заключения для судебных разбирательств.", price: "от 10 000 ₽", time: "3 дня" },
+    { cat: "special",   img: "/images/services/seizure.jpg",    icon: "🔨", name: "Оценка при изъятии",            desc: "Определение размера возмещения при изъятии имущества для государственных нужд.", price: "15 000 ₽",   time: "5 дней" },
+    { cat: "special",   img: "/images/services/demolition.jpg", icon: "🏚", name: "Оценка при сносе жилья",        desc: "Ветхое и аварийное жильё, участки в зонах реновации.", price: "от 15 000 ₽", time: "3 дня"  },
+    { cat: "transport", img: "/images/services/car.jpg",        icon: "🚗", name: "Оценка автомобиля",             desc: "Легковые автомобили для продажи, страхования, нотариуса, суда.", price: "от 3 000 ₽",  time: "1 день" },
+    { cat: "business",  img: "/images/services/business.jpg",   icon: "💼", name: "Оценка бизнеса",                desc: "Оценка компаний и предприятий для сделок, залога, реструктуризации.", price: "от 30 000 ₽", time: "7 дней" },
+    { cat: "business",  img: "/images/services/patent.jpg",     icon: "📜", name: "Оценка патента",                desc: "Оценка исключительных прав на изобретения, полезные модели и промышленные образцы.", price: "от 15 000 ₽", time: "5 дней" },
+    { cat: "other",     img: "/images/services/cattle.jpg",     icon: "🐄", name: "Оценка крупного рогатого скота",desc: "Рыночная оценка сельскохозяйственных животных для страхования и учёта.", price: "от 7 000 ₽",  time: "2 дня"  },
+    { cat: "other",     img: "/images/services/scrap.jpg",      icon: "🔩", name: "Оценка металлолома",            desc: "Определение рыночной стоимости лома чёрных и цветных металлов для сделок и учёта.", price: "от 5 000 ₽",  time: "2 дня" },
   ];
 
   const filters = [
-    { id: "all", label: "Все услуги" },
-    { id: "realty", label: "Недвижимость" },
-    { id: "special", label: "Судебные / Изъятие" },
+    { id: "all",       label: "Все услуги" },
+    { id: "realty",    label: "Недвижимость" },
+    { id: "special",   label: "Судебные / Изъятие" },
     { id: "transport", label: "Транспорт" },
-    { id: "business", label: "Бизнес и активы" },
-    { id: "other", label: "Прочее" },
+    { id: "business",  label: "Бизнес и активы" },
+    { id: "other",     label: "Прочее" },
   ];
 
   const filtered = activeFilter === "all" ? services : services.filter(s => s.cat === activeFilter);
@@ -63,21 +62,24 @@ const ServicesPage = ({ setPage }) => {
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div className="services-all-grid">
             {filtered.map((s, i) => (
-              <div key={i} className="service-card-full">
-                <div style={{ fontSize: 34, marginBottom: 16 }}>{s.icon}</div>
-                <div className="service-price-tag">{s.price}</div>
-                <div style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 25, fontWeight: 500, marginBottom: ".6rem", lineHeight: 1.2 }}>
-                  {s.name}
-                </div>
-                <div style={{ fontSize: 16, fontWeight: 300, color: "rgba(245,240,230,.6)", lineHeight: 1.7, marginBottom: 16 }}>
-                  {s.desc}
-                </div>
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 12 }}>
-                  <div style={{ fontSize: 15, color: "rgba(245,240,230,.4)", letterSpacing: ".06em" }}>⏱ {s.time}</div>
-                  <button className="btn-ghost" onClick={() => setPage("application")}>
-                    Заказать
-                    <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M9 1L13 5M13 5L9 9M13 5H1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" /></svg>
-                  </button>
+              <div key={i} className="service-card-full" onClick={() => setPage("application")}>
+                <div className="service-card-full-bg" style={{ backgroundImage: `url(${s.img})` }} />
+                <div className="service-card-full-overlay" />
+                <div className="service-card-full-body">
+                  <div className="service-price-tag">{s.price}</div>
+                  <div style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 25, fontWeight: 500, marginBottom: ".6rem", lineHeight: 1.2, marginTop: 10 }}>
+                    {s.name}
+                  </div>
+                  <div style={{ fontSize: 15, fontWeight: 300, color: "rgba(245,240,230,.65)", lineHeight: 1.65, marginBottom: 16 }}>
+                    {s.desc}
+                  </div>
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 12 }}>
+                    <div style={{ fontSize: 15, color: "rgba(245,240,230,.4)", letterSpacing: ".06em" }}>⏱ {s.time}</div>
+                    <button className="btn-ghost" onClick={e => { e.stopPropagation(); setPage("application"); }}>
+                      Заказать
+                      <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M9 1L13 5M13 5L9 9M13 5H1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" /></svg>
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}

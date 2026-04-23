@@ -2,12 +2,12 @@ import GosTenders from "../components/GosTenders";
 
 const HomePage = ({ setPage }) => {
   const services = [
-    { icon: "🏠", name: "Оценка недвижимости", desc: "Квартиры, дома, коттеджи, апартаменты — для сделок, ипотеки и налогообложения.", price: "от 3 500 ₽" },
-    { icon: "🏢", name: "Оценка коммерческой недвижимости", desc: "Офисы, склады, торговые помещения, производственные здания.", price: "от 15 000 ₽" },
-    { icon: "⚖️", name: "Оценка для суда", desc: "Официальные заключения, признаваемые судами всех инстанций РФ.", price: "от 10 000 ₽" },
-    { icon: "🚗", name: "Оценка транспорта", desc: "Легковые авто, грузовой транспорт, спецтехника и самоходные машины.", price: "от 3 000 ₽" },
-    { icon: "💼", name: "Оценка бизнеса", desc: "Оценка компаний, долей, акций и нематериальных активов.", price: "от 30 000 ₽" },
-    { icon: "📋", name: "Оценка ущерба", desc: "Ущерб от затопления, пожара, ДТП — для страховых компаний и суда.", price: "от 5 000 ₽" },
+    { img: "/images/services/house.jpg",      icon: "🏡", name: "Оценка дома и коттеджа",         desc: "Жилые дома, дачи, загородные коттеджи — для сделок, ипотеки и налогообложения.", price: "от 7 000 ₽"  },
+    { img: "/images/services/commercial.jpg", icon: "🏢", name: "Оценка коммерческой недвижимости", desc: "Офисы, склады, торговые помещения, производственные здания.", price: "от 15 000 ₽" },
+    { img: "/images/services/court.jpg",      icon: "⚖️", name: "Оценка для суда",                 desc: "Официальные заключения, признаваемые судами всех инстанций РФ.", price: "от 10 000 ₽" },
+    { img: "/images/services/car.jpg",        icon: "🚗", name: "Оценка транспорта",               desc: "Легковые авто, грузовой транспорт, спецтехника и самоходные машины.", price: "от 3 000 ₽"  },
+    { img: "/images/services/business.jpg",   icon: "💼", name: "Оценка бизнеса",                  desc: "Оценка компаний, долей, акций и нематериальных активов.", price: "от 30 000 ₽" },
+    { img: "/images/services/land.jpg",       icon: "🌲", name: "Оценка земельного участка",       desc: "ИЖС, СНТ, сельхозугодья, участки под коммерческую застройку.", price: "от 5 000 ₽"  },
   ];
 
   const reviews = [
@@ -22,7 +22,7 @@ const HomePage = ({ setPage }) => {
       <section className="hero">
         <div className="hero-left">
           <div className="hero-tag anim-fade-up">
-            <span />Брянск и Брянская область<span />
+            <span />Работаем по всей России<span />
           </div>
           <h1 className="hero-h1 anim-fade-up-d1">
             Профессиональная<br /><em>независимая</em><br />оценка имущества
@@ -90,17 +90,21 @@ const HomePage = ({ setPage }) => {
           <div className="services-grid">
             {services.map((s, i) => (
               <div key={i} className="service-card" onClick={() => setPage("application")}>
-                <div className="service-icon">{s.icon}</div>
-                <div className="service-name">{s.name}</div>
-                <div className="service-desc">{s.desc}</div>
-                <div className="service-price">{s.price}</div>
+                <div className="service-card-bg" style={{ backgroundImage: `url(${s.img})` }} />
+                <div className="service-card-overlay" />
+                <div className="service-card-body">
+                  <div className="service-icon">{s.icon}</div>
+                  <div className="service-name">{s.name}</div>
+                  <div className="service-desc">{s.desc}</div>
+                  <div className="service-price">{s.price}</div>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* REVIEWS — перемещён выше */}
+      {/* REVIEWS */}
       <section className="section" style={{ background: "var(--ink)" }}>
         <div className="section-inner">
           <div className="section-header">
@@ -125,7 +129,7 @@ const HomePage = ({ setPage }) => {
       {/* ГОСЗАКУПКИ */}
       <GosTenders />
 
-      {/* HOW IT WORKS — перемещён ниже */}
+      {/* HOW IT WORKS */}
       <section className="section" style={{ background: "rgba(58,24,51,.2)", borderTop: "1px solid rgba(196,162,44,.08)", borderBottom: "1px solid rgba(196,162,44,.08)" }}>
         <div className="section-inner">
           <div style={{ textAlign: "center", marginBottom: 60 }}>

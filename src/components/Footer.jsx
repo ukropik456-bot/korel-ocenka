@@ -40,7 +40,7 @@ const Footer = ({ setPage }) => (
           <div style={{ fontSize: 16, fontWeight: 300, color: "rgba(245,240,230,.55)", lineHeight: 2 }}>
             <div style={{ color: "var(--gold)", fontWeight: 500, fontSize: 18, marginBottom: 4 }}>+7 (xxx) xxx-xx-xx</div>
             <div>Ежедневно 7:00 — 21:00</div>
-            <div>Брянск и БО</div>
+            <div>Работаем по всей России</div>
             <div style={{ marginTop: 12 }}>info@korel-ocenka.ru</div>
           </div>
         </div>
