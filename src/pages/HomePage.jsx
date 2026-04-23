@@ -160,10 +160,10 @@ const HomePage = ({ setPage }) => {
           <div>
             <div className="section-tag">Готовы начать?</div>
             <h2 className="section-title" style={{ marginBottom: ".75rem" }}>
-              Получите бесплатную<br />консультацию
+              Оставьте заявку —<br />мы перезвоним
             </h2>
             <p style={{ fontSize: 18, fontWeight: 300, color: "rgba(245,240,230,.7)", maxWidth: 460, lineHeight: 1.7 }}>
-              Расскажите о вашей задаче — мы подберём оптимальный вид оценки и озвучим стоимость ещё до заключения договора.
+              Расскажите о вашей задаче — мы подберём нужный вид оценки и озвучим стоимость в течение 15 минут.
             </p>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 16, flexShrink: 0 }}>

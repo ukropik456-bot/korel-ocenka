@@ -129,7 +129,7 @@ const GosTenders = () => {
           {/* Диаграмма */}
           <div style={{ background: "rgba(58,24,51,.45)", border: "1px solid rgba(196,162,44,.15)", padding: "36px 32px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
             <div style={{ fontSize: 15, fontWeight: 400, letterSpacing: ".1em", textTransform: "uppercase", color: "var(--gold)", marginBottom: 28 }}>Статус закупок</div>
-            <div style={{ display: "flex", alignItems: "center", gap: 40 }}>
+            <div className="gt-donut-row" style={{ display: "flex", alignItems: "center", gap: 40 }}>
               <div style={{ position: "relative", flexShrink: 0 }}>
                 <DonutChart segments={segments} size={160} stroke={22} />
                 <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center" }}>
@@ -137,7 +137,7 @@ const GosTenders = () => {
                   <div style={{ fontSize: 15, fontWeight: 300, color: "rgba(245,240,230,.55)", marginTop: 2 }}>закупок</div>
                 </div>
               </div>
-              <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+              <div className="gt-legend" style={{ display: "flex", flexDirection: "column", gap: 14 }}>
                 {[
                   { color: "#C4A22C", label: "Выиграно",      pct: `${data.winPct}%`        },
                   { color: "#6B3F6B", label: "Не определено", pct: `${data.notDefinedPct}%` },

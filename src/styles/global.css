@@ -140,6 +140,86 @@ body {
 .nav-link.active { color: var(--gold); }
 .nav-link.active::after { right: 0; }
 
+/* ── BURGER ── */
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  z-index: 101;
+}
+.burger-line {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--cream);
+  border-radius: 2px;
+  transition: transform .3s ease, opacity .3s ease;
+}
+.burger-line.open:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.burger-line.open:nth-child(2) { opacity: 0; }
+.burger-line.open:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── MOBILE MENU ── */
+.mobile-menu {
+  position: fixed;
+  top: 60px;
+  left: 0; right: 0;
+  z-index: 99;
+  background: rgba(25,12,22,.97);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(196,162,44,.2);
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .4s ease, padding .4s ease;
+}
+.mobile-menu--open {
+  max-height: 400px;
+  padding: 24px 20px 32px;
+}
+.mobile-menu-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 28px;
+}
+.mobile-nav-link {
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 300;
+  color: rgba(245,240,230,.8);
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(245,240,230,.07);
+  transition: color .2s;
+  letter-spacing: .02em;
+}
+.mobile-nav-link:last-child { border-bottom: none; }
+.mobile-nav-link:hover,
+.mobile-nav-link.active { color: var(--gold); }
+.mobile-menu-footer {
+  padding-top: 20px;
+  border-top: 1px solid rgba(196,162,44,.15);
+}
+.mobile-menu-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 98;
+  background: rgba(0,0,0,.4);
+}
+
 /* ── HERO ── */
 .hero {
   min-height: 100vh;
@@ -786,8 +866,9 @@ textarea.form-input { resize: vertical; min-height: 120px; }
 @media (max-width: 900px) {
   /* Header */
   .site-header { padding: 0 20px; height: 64px; }
-  .site-header nav { gap: 16px; }
-  .nav-link { font-size: 13px; }
+  .header-nav-desktop { display: none; }
+  .header-cta-desktop { display: none; }
+  .burger { display: flex; }
 
   /* Hero */
   .hero { grid-template-columns: 1fr; min-height: auto; }
@@ -835,57 +916,81 @@ textarea.form-input { resize: vertical; min-height: 120px; }
 @media (max-width: 600px) {
   /* Header */
   .site-header { padding: 0 16px; height: 60px; }
-  .site-header nav { display: none; }
-  .site-header .btn-primary { font-size: 13px; padding: 10px 18px; }
+  .header-logo-text { display: none; }
 
-  /* Hero */
-  .hero-left { padding: 88px 16px 52px; }
-  .hero-ctas { flex-direction: column; align-items: flex-start; gap: 12px; }
+  /* Hero — всё строго внутри экрана */
+  .hero-left {
+    padding: 80px 16px 48px;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+  .hero-h1 {
+    font-size: clamp(36px, 10vw, 52px);
+    word-break: break-word;
+  }
+  .hero-sub {
+    font-size: 16px;
+    max-width: 100%;
+  }
+  .hero-tag { font-size: 12px; letter-spacing: .12em; }
+  .hero-ctas { flex-direction: column; align-items: stretch; gap: 10px; }
   .hero-ctas .btn-primary,
   .hero-ctas .btn-outline { width: 100%; justify-content: center; }
-  .hero-stats { grid-template-columns: repeat(3, 1fr); margin-top: 2.5rem; }
-  .hero-stat + .hero-stat { padding-left: 1rem; }
-  .hero-stat-num { font-size: 32px; }
-  .hero-stat-label { font-size: 12px; }
+  .hero-stats {
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 2rem;
+    gap: 0;
+  }
+  .hero-stat + .hero-stat { padding-left: .75rem; }
+  .hero-stat-num { font-size: 28px; }
+  .hero-stat-label { font-size: 11px; letter-spacing: .03em; }
 
   /* Sections */
-  .section { padding: 48px 16px; }
-  .section-header { flex-direction: column; align-items: flex-start; gap: 16px; margin-bottom: 32px; }
-  .section-title { font-size: clamp(32px, 8vw, 46px); }
+  .section { padding: 44px 16px; }
+  .section-header { flex-direction: column; align-items: flex-start; gap: 14px; margin-bottom: 28px; }
+  .section-title { font-size: clamp(28px, 8vw, 42px); }
+  .section-sub { font-size: 16px; }
 
   /* Services */
   .services-grid     { grid-template-columns: 1fr; gap: 2px; }
   .service-card      { aspect-ratio: 4 / 3; }
   .services-all-grid { grid-template-columns: 1fr; gap: 2px; }
   .service-card-full { aspect-ratio: 4 / 3; }
-  .service-card-body { padding: 20px 20px 24px; }
-  .service-card-full-body { padding: 18px 20px 22px; }
-  .service-name { font-size: 20px; }
+  .service-card-body { padding: 16px 16px 20px; }
+  .service-card-full-body { padding: 16px 16px 20px; }
+  .service-name { font-size: 19px; }
 
   /* GosTenders */
   .gt-metrics-grid { grid-template-columns: 1fr; }
   .gt-center-grid  { grid-template-columns: 1fr; }
+  .gt-donut-row {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 24px !important;
+  }
+  .gt-legend { width: 100%; }
 
   /* Steps */
-  .steps-grid { grid-template-columns: 1fr; gap: 32px; }
+  .steps-grid { grid-template-columns: 1fr; gap: 28px; }
   .step { padding: 0; }
-  .step-num { width: 64px; height: 64px; font-size: 28px; }
+  .step-num { width: 60px; height: 60px; font-size: 26px; }
 
   /* Reviews */
-  .review-card { padding: 28px 20px; }
+  .review-card { padding: 24px 16px; }
 
   /* Footer */
-  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-  .footer { padding: 48px 16px 24px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  .footer { padding: 44px 16px 20px; }
 
   /* CTA */
-  .cta-banner { padding: 48px 16px; }
+  .cta-banner { padding: 44px 16px; }
+  .cta-banner-inner { flex-direction: column; gap: 28px; }
   .cta-banner-inner > div:last-child button { width: 100%; justify-content: center; }
 
   /* Form */
-  .app-banner { padding: 72px 16px 48px; }
-  .app-form-section { padding: 40px 16px; }
-  .services-hero { padding: 72px 16px 36px; }
+  .app-banner { padding: 68px 16px 44px; }
+  .app-form-section { padding: 36px 16px; }
+  .services-hero { padding: 68px 16px 32px; }
   .services-hero > div { padding: 0 !important; }
   .service-price-tag { font-size: 14px; }
 
