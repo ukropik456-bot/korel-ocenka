@@ -1003,10 +1003,10 @@ textarea.form-input { resize: vertical; min-height: 120px; }
   .section-sub { font-size: 17px; }
 
   /* Services — на мобильном стекируем карточки вертикально */
-  .services-grid        { grid-template-columns: 1fr; gap: 2px; }
-  .services-all-grid    { grid-template-columns: 1fr; gap: 2px; }
+  .services-grid        { grid-template-columns: 1fr; gap: 12px; }
+  .services-all-grid    { grid-template-columns: 1fr; gap: 12px; background: transparent; }
   .service-card,
-  .service-card-full    { flex-direction: column; height: auto; }
+  .service-card-full    { flex-direction: column; height: auto; border: 1px solid rgba(196,162,44,.22); outline: none; }
   .sc-photo             { flex: none; width: 100%; height: auto; aspect-ratio: 16 / 9; }
   .sc-sep               { width: auto; height: 1px; align-self: auto; }
   .service-card-body    { padding: 20px 22px; }
