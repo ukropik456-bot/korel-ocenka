@@ -84,18 +84,27 @@ const ServicesPage = ({ setPage }) => {
           <div className="services-all-grid">
             {filtered.map((s, i) => (
               <div key={i} className="service-card-full" onClick={() => setPage("application")}>
-                <div
-                  className="service-card-full-bg"
-                  style={s.img ? { backgroundImage: `url(${s.img})` } : {}}
-                />
-                <div className="service-card-full-overlay" />
+                {/* Photo */}
+                <div className="sc-photo">
+                  <div className="service-card-full-bg" style={{ backgroundImage: `url(${s.img})` }} />
+                  <span className="sc-idx">{String(i + 1).padStart(2, "0")}</span>
+                </div>
+
+                {/* Separator */}
+                <div className="sc-sep" />
+
+                {/* Info */}
                 <div className="service-card-full-body">
-                  <div className="service-price-tag">{s.price}</div>
-                  <div style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 25, fontWeight: 500, lineHeight: 1.2, marginTop: 10 }}>
-                    {s.name}
+                  <div className="sc-meta">
+                    <span className="service-price-tag">{s.price}</span>
+                    <span className="sc-time">{s.time}</span>
                   </div>
-                  <div style={{ fontSize: 13, color: "rgba(245,240,230,.5)", marginTop: 6 }}>
-                    ⏱ {s.time}
+                  <div className="service-card-full-name">{s.name}</div>
+                  <div className="sc-cta">
+                    Заказать
+                    <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+                      <path d="M8 1L11 4M11 4L8 7M11 4H1" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
+                    </svg>
                   </div>
                 </div>
               </div>
