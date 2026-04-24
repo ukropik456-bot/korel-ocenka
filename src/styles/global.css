@@ -1009,13 +1009,14 @@ textarea.form-input { resize: vertical; min-height: 120px; }
   .service-card-full    { flex-direction: column; height: auto; border: 1px solid rgba(196,162,44,.22); outline: none; }
   .sc-photo             { flex: none; width: 100%; height: auto; aspect-ratio: 16 / 9; }
   .sc-sep               { width: auto; height: 1px; align-self: auto; }
-  .service-card-body    { padding: 20px 22px; }
-  .service-card-full-body { padding: 20px 22px; }
-  .service-name         { font-size: 23px; }
-  .service-card-full-name { font-size: 22px; }
+  .service-card-body,
+  .service-card-full-body { padding: 20px 22px; gap: 10px; }
+  .service-name,
+  .service-card-full-name { font-size: 23px; }
   .sc-desc              { font-size: 15px; }
-  .service-price        { font-size: 15px; }
+  .service-price,
   .service-price-tag    { font-size: 15px; }
+  .sc-time              { font-size: 15px; }
 
   /* GosTenders */
   .gt-metrics-grid { grid-template-columns: 1fr; }
