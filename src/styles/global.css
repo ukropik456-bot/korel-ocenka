@@ -411,7 +411,7 @@ body {
   display: flex;
   flex-direction: row;
   height: 260px;
-  background: #110710;
+  background: #292227;
   outline: 1px solid transparent;
   outline-offset: -1px;
   transition: outline-color .3s ease, transform .3s ease, box-shadow .3s ease;
@@ -443,7 +443,7 @@ body {
   flex-direction: column;
   justify-content: center;
   gap: 12px;
-  background: #110710;
+  background: #292227;
   flex-grow: 1;
   overflow: hidden;
 }
@@ -758,7 +758,7 @@ textarea.form-input { resize: vertical; min-height: 120px; }
   display: flex;
   flex-direction: row;
   height: 260px;
-  background: #3a183333;
+  background: #292227;
   overflow: hidden;
   outline: 1px solid transparent;
   outline-offset: -1px;
