@@ -722,6 +722,15 @@ textarea.form-input { resize: vertical; min-height: 120px; }
 
 /* ── PAGE: SERVICES ── */
 .services-page { padding-top: 76px; }
+.sp-filters-bar {
+  padding: 0 60px;
+  background: var(--ink);
+  border-bottom: 1px solid rgba(196,162,44,.1);
+}
+.sp-grid-wrap {
+  padding: 2px 60px 80px;
+  background: var(--ink);
+}
 .services-hero {
   background: var(--plum);
   padding: 80px 60px 60px;
@@ -1050,6 +1059,8 @@ textarea.form-input { resize: vertical; min-height: 120px; }
   .app-form-section { padding: 36px 16px; }
   .services-hero { padding: 68px 16px 32px; }
   .services-hero > div { padding: 0 !important; }
+  .sp-filters-bar { padding: 0 16px; }
+  .sp-grid-wrap   { padding: 2px 16px 48px; }
   .service-price-tag { font-size: 14px; }
 
   /* 404 */

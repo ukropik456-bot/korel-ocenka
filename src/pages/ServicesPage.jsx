@@ -62,7 +62,7 @@ const ServicesPage = ({ setPage }) => {
       </div>
 
       {/* Фильтры */}
-      <div style={{ padding: "0 60px", background: "var(--ink)", borderBottom: "1px solid rgba(196,162,44,.1)" }}>
+      <div className="sp-filters-bar">
         <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", gap: 4, overflowX: "auto", padding: "20px 0" }}>
           {filters.map(f => (
             <button key={f.id} onClick={() => setActiveFilter(f.id)} style={{
@@ -79,7 +79,7 @@ const ServicesPage = ({ setPage }) => {
       </div>
 
       {/* Сетка карточек */}
-      <div style={{ padding: "2px 60px 80px", background: "var(--ink)" }}>
+      <div className="sp-grid-wrap">
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div className="services-all-grid">
             {filtered.map((s, i) => (
