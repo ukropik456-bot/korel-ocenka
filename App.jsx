@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useState } from "react"
 
 /* ── GLOBAL STYLES ───────────────────────────────────────────── */
 const GlobalStyle = () => (
@@ -9,8 +9,8 @@ const GlobalStyle = () => (
       --ink:    #1A0D14;
       --plum:   #3A1833;
       --plum2:  #4E2348;
-      --cream:  #F5F0E6;
-      --cream2: #EDE8DC;
+      --cream:  #3A1833;
+      --cream2: #4E2348;
       --cream3: #E3DDD0;
       --gold:   #A8841A;
       --gold2:  #C4A22C;
