@@ -100,8 +100,9 @@ const ServicesPage = ({ setPage }) => {
                     <span className="sc-time">{s.time}</span>
                   </div>
                   <div className="service-card-full-name">{s.name}</div>
+                  <div className="sc-desc">{s.desc}</div>
                   <div className="sc-cta">
-                    Заказать
+                    Заказать оценку
                     <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
                       <path d="M8 1L11 4M11 4L8 7M11 4H1" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
                     </svg>

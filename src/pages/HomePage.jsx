@@ -90,13 +90,16 @@ const HomePage = ({ setPage }) => {
           <div className="services-grid">
             {services.map((s, i) => (
               <div key={i} className="service-card" onClick={() => setPage("application")}>
-                <div
-                  className="service-card-bg"
-                  style={s.img ? { backgroundImage: `url(${s.img})` } : {}}
-                />
-                <div className="service-card-overlay" />
+                {/* Фото — левая сторона */}
+                <div className="sc-photo">
+                  <div className="service-card-bg" style={{ backgroundImage: `url(${s.img})` }} />
+                </div>
+                {/* Разделитель */}
+                <div className="sc-sep" />
+                {/* Информация — правая сторона */}
                 <div className="service-card-body">
                   <div className="service-name">{s.name}</div>
+                  <div className="sc-desc">{s.desc}</div>
                   <div className="service-price">{s.price}</div>
                 </div>
               </div>
