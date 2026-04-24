@@ -13,12 +13,6 @@ const SORT_OPTIONS = [
   { value: "status",    label: "По статусу" },
 ];
 
-const FILTERS = [
-  { value: "all",     label: "Все"       },
-  { value: "new",     label: "Новые"     },
-  { value: "in_work", label: "В работе"  },
-  { value: "done",    label: "Завершены" },
-];
 
 /* ── StatusBadge ─────────────────────────────────────────── */
 const StatusBadge = ({ status }) => {
@@ -187,49 +181,30 @@ const AdminPage = () => {
           </button>
         </div>
 
-        {/* ── Счётчики по статусам ── */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 2, marginBottom: 32 }}>
-          {[
-            { key: "all",     label: "Всего",     color: "var(--gold)" },
-            { key: "new",     label: "Новые",     color: STATUS.new.color },
-            { key: "in_work", label: "В работе",  color: STATUS.in_work.color },
-            { key: "done",    label: "Завершены", color: STATUS.done.color },
-          ].map(({ key, label, color }) => (
-            <div key={key} style={{
-              background: "rgba(58,24,51,.35)",
-              border: "1px solid rgba(196,162,44,.1)",
-              padding: "20px 24px",
-              cursor: "pointer",
-              outline: filter === key ? `1px solid ${color}` : "none",
-              transition: "opacity .15s",
-              opacity: filter === key ? 1 : 0.7,
-            }} onClick={() => setFilter(key)}>
-              <div style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 36, fontWeight: 300, color, lineHeight: 1 }}>
-                {counts[key]}
-              </div>
-              <div style={{ fontSize: 14, color: "rgba(245,240,230,.5)", marginTop: 4 }}>{label}</div>
-            </div>
-          ))}
-        </div>
-
-        {/* ── Панель фильтров и сортировки ── */}
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 12, marginBottom: 20 }}>
-          {/* Фильтр-таблетки */}
-          <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-            {FILTERS.map(f => (
-              <button key={f.value} onClick={() => setFilter(f.value)} style={{
-                padding: "7px 18px",
-                fontSize: 14,
-                background: filter === f.value ? "rgba(196,162,44,.18)" : "rgba(58,24,51,.4)",
-                border: `1px solid ${filter === f.value ? "rgba(196,162,44,.5)" : "rgba(245,240,230,.1)"}`,
-                color: filter === f.value ? "var(--gold)" : "rgba(245,240,230,.55)",
+        {/* ── Счётчики / фильтры + сортировка ── */}
+        <div style={{ display: "flex", alignItems: "stretch", justifyContent: "space-between", flexWrap: "wrap", gap: 12, marginBottom: 28 }}>
+          {/* Плитки-фильтры */}
+          <div style={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
+            {[
+              { key: "all",     label: "Всего",     color: "var(--gold)" },
+              { key: "new",     label: "Новые",     color: STATUS.new.color },
+              { key: "in_work", label: "В работе",  color: STATUS.in_work.color },
+              { key: "done",    label: "Завершены", color: STATUS.done.color },
+            ].map(({ key, label, color }) => (
+              <div key={key} onClick={() => setFilter(key)} style={{
+                background: "rgba(58,24,51,.35)",
+                border: `1px solid ${filter === key ? color : "rgba(196,162,44,.1)"}`,
+                padding: "16px 28px",
                 cursor: "pointer",
-                transition: "all .15s",
-                letterSpacing: ".03em",
+                opacity: filter === key ? 1 : 0.65,
+                transition: "opacity .15s, border-color .15s",
+                minWidth: 110,
               }}>
-                {f.label}
-                <span style={{ marginLeft: 6, opacity: .6 }}>({counts[f.value]})</span>
-              </button>
+                <div style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 34, fontWeight: 300, color, lineHeight: 1 }}>
+                  {counts[key]}
+                </div>
+                <div style={{ fontSize: 13, color: "rgba(245,240,230,.5)", marginTop: 4 }}>{label}</div>
+              </div>
             ))}
           </div>
 
