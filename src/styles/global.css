@@ -42,7 +42,7 @@ body {
   color: var(--ink);
   font-family: 'Jost', sans-serif;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 17px;
   letter-spacing: .08em;
   text-transform: uppercase;
   border: none;
@@ -65,7 +65,7 @@ body {
   color: var(--cream);
   font-family: 'Jost', sans-serif;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 17px;
   letter-spacing: .08em;
   text-transform: uppercase;
   border: 1px solid rgba(245,240,230,.4);
@@ -276,7 +276,7 @@ body {
   color: var(--gold);
 }
 .hero-sub {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 300;
   line-height: 1.8;
   color: rgba(245,240,230,.7);
@@ -381,7 +381,7 @@ body {
   margin-bottom: 1.5rem;
 }
 .section-sub {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 300;
   color: rgba(245,240,230,.65);
   line-height: 1.8;
@@ -410,7 +410,7 @@ body {
   cursor: pointer;
   display: flex;
   flex-direction: row;
-  height: 178px;
+  height: 200px;
   background: #110710;
   outline: 1px solid transparent;
   outline-offset: -1px;
@@ -450,7 +450,7 @@ body {
 
 .service-name {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 21px;
+  font-size: 24px;
   font-weight: 500;
   line-height: 1.2;
   color: var(--cream);
@@ -459,9 +459,9 @@ body {
 .service-card:hover .service-name { color: #fff; }
 
 .service-price {
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 600;
-  letter-spacing: .1em;
+  letter-spacing: .08em;
   text-transform: uppercase;
   color: var(--gold);
 }
@@ -496,7 +496,7 @@ body {
 
 /* Truncated description */
 .sc-desc {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 300;
   color: rgba(245,240,230,.42);
   line-height: 1.55;
@@ -542,12 +542,12 @@ body {
 }
 .step-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
+  font-size: 25px;
   font-weight: 500;
   margin-bottom: .75rem;
 }
 .step-desc {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 300;
   color: rgba(245,240,230,.6);
   line-height: 1.7;
@@ -562,16 +562,16 @@ body {
   transition: border-color .3s;
 }
 .review-card:hover { border-color: rgba(196,162,44,.25); }
-.review-stars { color: var(--gold); font-size: 17px; margin-bottom: 1rem; letter-spacing: 3px; }
+.review-stars { color: var(--gold); font-size: 18px; margin-bottom: 1rem; letter-spacing: 3px; }
 .review-text {
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 300;
   line-height: 1.8;
   color: rgba(245,240,230,.8);
   margin-bottom: 1.5rem;
   font-style: italic;
 }
-.review-author { font-size: 16px; font-weight: 500; letter-spacing: .05em; }
+.review-author { font-size: 17px; font-weight: 500; letter-spacing: .05em; }
 .review-date { font-size: 15px; color: rgba(245,240,230,.4); margin-top: 4px; letter-spacing: .08em; }
 
 /* ── CTA BANNER ── */
@@ -621,7 +621,7 @@ body {
 }
 .footer-link {
   display: block;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 300;
   color: rgba(245,240,230,.55);
   background: none;
@@ -748,7 +748,7 @@ textarea.form-input { resize: vertical; min-height: 120px; }
   cursor: pointer;
   display: flex;
   flex-direction: row;
-  height: 200px;
+  height: 220px;
   background: #110710;
   overflow: hidden;
   outline: 1px solid transparent;
@@ -803,16 +803,16 @@ textarea.form-input { resize: vertical; min-height: 120px; }
 .sc-meta { display: flex; align-items: center; }
 
 .service-price-tag {
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 600;
-  letter-spacing: .1em;
+  letter-spacing: .08em;
   text-transform: uppercase;
   color: var(--gold);
 }
 .sc-time {
-  font-size: 12px;
+  font-size: 15px;
   color: rgba(245,240,230,.3);
-  letter-spacing: .04em;
+  letter-spacing: .03em;
 }
 .sc-time::before {
   content: '·';
@@ -822,7 +822,7 @@ textarea.form-input { resize: vertical; min-height: 120px; }
 
 .service-card-full-name {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 21px;
+  font-size: 24px;
   font-weight: 500;
   line-height: 1.2;
   color: var(--cream);
@@ -835,9 +835,9 @@ textarea.form-input { resize: vertical; min-height: 120px; }
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
-  letter-spacing: .14em;
+  letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--gold);
   opacity: 0;
@@ -976,14 +976,14 @@ textarea.form-input { resize: vertical; min-height: 120px; }
     box-sizing: border-box;
   }
   .hero-h1 {
-    font-size: clamp(36px, 10vw, 52px);
+    font-size: clamp(38px, 10vw, 54px);
     word-break: break-word;
   }
   .hero-sub {
-    font-size: 16px;
+    font-size: 17px;
     max-width: 100%;
   }
-  .hero-tag { font-size: 12px; letter-spacing: .12em; }
+  .hero-tag { font-size: 13px; letter-spacing: .1em; }
   .hero-ctas { flex-direction: column; align-items: stretch; gap: 10px; }
   .hero-ctas .btn-primary,
   .hero-ctas .btn-outline { width: 100%; justify-content: center; }
@@ -993,14 +993,14 @@ textarea.form-input { resize: vertical; min-height: 120px; }
     gap: 0;
   }
   .hero-stat + .hero-stat { padding-left: .75rem; }
-  .hero-stat-num { font-size: 28px; }
-  .hero-stat-label { font-size: 11px; letter-spacing: .03em; }
+  .hero-stat-num { font-size: 32px; }
+  .hero-stat-label { font-size: 13px; letter-spacing: .03em; }
 
   /* Sections */
   .section { padding: 44px 16px; }
   .section-header { flex-direction: column; align-items: flex-start; gap: 14px; margin-bottom: 28px; }
-  .section-title { font-size: clamp(28px, 8vw, 42px); }
-  .section-sub { font-size: 16px; }
+  .section-title { font-size: clamp(32px, 8vw, 46px); }
+  .section-sub { font-size: 17px; }
 
   /* Services — на мобильном стекируем карточки вертикально */
   .services-grid        { grid-template-columns: 1fr; gap: 2px; }
@@ -1009,10 +1009,10 @@ textarea.form-input { resize: vertical; min-height: 120px; }
   .service-card-full    { flex-direction: column; height: auto; }
   .sc-photo             { flex: none; width: 100%; height: auto; aspect-ratio: 16 / 9; }
   .sc-sep               { width: auto; height: 1px; align-self: auto; }
-  .service-card-body    { padding: 16px 18px 18px; }
-  .service-card-full-body { padding: 16px 18px 18px; }
-  .service-name         { font-size: 19px; }
-  .service-card-full-name { font-size: 19px; }
+  .service-card-body    { padding: 18px 20px 20px; }
+  .service-card-full-body { padding: 18px 20px 20px; }
+  .service-name         { font-size: 21px; }
+  .service-card-full-name { font-size: 21px; }
 
   /* GosTenders */
   .gt-metrics-grid { grid-template-columns: 1fr; }
