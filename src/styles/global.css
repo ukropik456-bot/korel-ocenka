@@ -803,7 +803,7 @@ textarea.form-input { resize: vertical; min-height: 120px; }
   flex-direction: column;
   justify-content: center;
   gap: 10px;
-  background: #110710;
+  background: #3a183333;
   flex-grow: 1;
   overflow: hidden;
 }
