@@ -11,9 +11,16 @@ export default async function handler(req, res) {
   }
 
   try {
+    // Добавляем колонку status если её ещё нет
+    await sql`
+      ALTER TABLE applications
+      ADD COLUMN IF NOT EXISTS status VARCHAR(20) NOT NULL DEFAULT 'new'
+    `;
+
     const { rows } = await sql`
-      SELECT id, name, phone, email, service, comment,
-             to_char(created_at AT TIME ZONE 'Europe/Moscow', 'DD.MM.YYYY HH24:MI') AS date
+      SELECT id, name, phone, email, service, comment, status,
+             to_char(created_at AT TIME ZONE 'Europe/Moscow', 'DD.MM.YYYY HH24:MI') AS date,
+             created_at
       FROM applications
       ORDER BY created_at DESC
     `;
