@@ -1,54 +1,68 @@
 import Logo from "./Logo";
 
 const Footer = ({ setPage }) => (
-  <footer className="footer">
-    <div className="footer-inner">
-      <div className="footer-grid">
+  <footer className="footer-v2">
+    <div className="wrap-v2">
+      <div className="footer-v2__top">
         <div>
-          <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: "1.2rem" }}>
-            <Logo fill="#C6A43F" />
-            <div style={{ borderLeft: "1px solid rgba(196,162,44,.3)", paddingLeft: 12 }}>
-              <div style={{ fontFamily: "'Jost',sans-serif", fontWeight: 600, fontSize: 16, letterSpacing: ".12em", textTransform: "uppercase", color: "var(--cream)" }}>
-                КОРЭЛ
-              </div>
-              <div style={{ fontFamily: "'Jost',sans-serif", fontWeight: 300, fontSize: 15, letterSpacing: ".18em", color: "var(--gold)", marginTop: 2 }}>
-                Независимая оценка
-              </div>
-            </div>
-          </div>
-          <p style={{ fontSize: 16, fontWeight: 300, color: "rgba(245,240,230,.5)", lineHeight: 1.8, maxWidth: 280 }}>
-            Профессиональная независимая оценка имущества и активов для физических и юридических лиц. Более 10 лет опыта.
+          <button
+            className="footer-v2__brand-logo"
+            onClick={() => setPage("home")}
+            aria-label="КОРЭЛ — на главную"
+          >
+            <Logo />
+            <span className="wm">КОРЭЛ</span>
+          </button>
+          <p className="footer-v2__brand-tag">
+            Независимая оценка имущества — работаем по всей России с 2015 года.
           </p>
         </div>
 
         <div>
-          <div className="footer-title">Навигация</div>
-          {[["home", "Главная"], ["services", "Услуги"], ["application", "Заказать оценку"]].map(([p, l]) => (
-            <button key={p} className="footer-link" onClick={() => setPage(p)}>{l}</button>
-          ))}
+          <h4>Навигация</h4>
+          <ul>
+            {[
+              ["home",        "Главная"],
+              ["services",    "Услуги"],
+              ["application", "Заказать оценку"],
+            ].map(([p, l]) => (
+              <li key={p}>
+                <button onClick={() => setPage(p)}>{l}</button>
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div>
-          <div className="footer-title">Услуги</div>
-          {["Оценка недвижимости", "Оценка для ипотеки", "Оценка бизнеса", "Оценка транспорта", "Оценка ущерба", "Оценка имущества"].map(s => (
-            <button key={s} className="footer-link" onClick={() => setPage("services")}>{s}</button>
-          ))}
+          <h4>Услуги</h4>
+          <ul>
+            {[
+              "Оценка недвижимости",
+              "Оценка для ипотеки",
+              "Оценка бизнеса",
+              "Оценка транспорта",
+              "Оценка для суда",
+              "Оценка земли",
+            ].map((s) => (
+              <li key={s}>
+                <button onClick={() => setPage("services")}>{s}</button>
+              </li>
+            ))}
+          </ul>
         </div>
 
-        <div>
-          <div className="footer-title">Контакты</div>
-          <div style={{ fontSize: 16, fontWeight: 300, color: "rgba(245,240,230,.55)", lineHeight: 2 }}>
-            <div style={{ color: "var(--gold)", fontWeight: 500, fontSize: 18, marginBottom: 4 }}>+7 (905) 101-18-81</div>
-            <div>Ежедневно 7:00 — 21:00</div>
-            <div>Работаем по всей России</div>
-            <div style={{ marginTop: 12 }}>info@korel-ocenka.ru</div>
-          </div>
+        <div className="footer-v2__contact">
+          <h4>Связь</h4>
+          <b>+7 (905) 101-18-81</b>
+          info@korel-ocenka.ru<br />
+          Работаем по всей России
+          <small>Ежедневно 7:00–21:00</small>
         </div>
       </div>
 
-      <div className="footer-bottom">
-        <div className="footer-copy">© 2024 Оценка КОРЭЛ. Все права защищены.</div>
-        <div className="footer-copy">СРО: АО «Российское общество оценщиков»</div>
+      <div className="footer-v2__bottom">
+        <span>© 2026 КОРЭЛ. Все права защищены.</span>
+        <span>СРО: АО «Российское общество оценщиков»</span>
       </div>
     </div>
   </footer>
