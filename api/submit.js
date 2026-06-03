@@ -134,8 +134,9 @@ export default async function handler(req, res) {
       VALUES (${name}, ${phone}, ${email || null}, ${service || null}, ${comment || null})
     `;
 
-    // 2) Уведомление на почту — не ждём, не падаем
-    sendEmailNotification({ name, phone, email, service, comment });
+    // 2) Уведомление на почту — ОБЯЗАТЕЛЬНО await, иначе Vercel прибивает функцию до отправки.
+    // Внутри sendEmailNotification ошибки ловятся, заявка не сорвётся даже если Resend упал.
+    await sendEmailNotification({ name, phone, email, service, comment });
 
     res.status(200).json({ ok: true });
   } catch (err) {
