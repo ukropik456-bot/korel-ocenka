@@ -21,7 +21,7 @@ const StatusBadge = ({ status }) => {
     <span style={{
       display: "inline-block",
       padding: "3px 11px",
-      fontSize: 12,
+      fontSize: 16,
       fontWeight: 500,
       letterSpacing: ".06em",
       textTransform: "uppercase",
@@ -139,7 +139,7 @@ const AdminPage = () => {
           <div style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 32, fontWeight: 300, marginBottom: 8 }}>
             Панель заявок
           </div>
-          <div style={{ fontSize: 15, color: "rgba(245,240,230,.45)", marginBottom: 32 }}>
+          <div style={{ fontSize: 16, color: "rgba(245,240,230,.45)", marginBottom: 32 }}>
             Введите пароль для доступа
           </div>
           <input
@@ -151,7 +151,7 @@ const AdminPage = () => {
             onKeyDown={e => e.key === "Enter" && login()}
             style={{ marginBottom: 16 }}
           />
-          {error && <div style={{ fontSize: 14, color: "#e57373", marginBottom: 16 }}>{error}</div>}
+          {error && <div style={{ fontSize: 16, color: "#e57373", marginBottom: 16 }}>{error}</div>}
           <button className="btn-primary" style={{ width: "100%", justifyContent: "center" }} onClick={login} disabled={loading}>
             {loading ? "Проверка..." : "Войти"}
           </button>
@@ -203,20 +203,20 @@ const AdminPage = () => {
                 <div style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 34, fontWeight: 300, color, lineHeight: 1 }}>
                   {counts[key]}
                 </div>
-                <div style={{ fontSize: 13, color: "rgba(245,240,230,.5)", marginTop: 4 }}>{label}</div>
+                <div style={{ fontSize: 16, color: "rgba(245,240,230,.5)", marginTop: 4 }}>{label}</div>
               </div>
             ))}
           </div>
 
           {/* Сортировка */}
           <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-            <span style={{ fontSize: 14, color: "rgba(245,240,230,.35)", letterSpacing: ".04em" }}>Сортировка:</span>
+            <span style={{ fontSize: 16, color: "rgba(245,240,230,.35)", letterSpacing: ".04em" }}>Сортировка:</span>
             <select value={sort} onChange={e => setSort(e.target.value)} style={{
               background: "rgba(58,24,51,.5)",
               border: "1px solid rgba(196,162,44,.2)",
               color: "rgba(245,240,230,.8)",
               padding: "7px 12px",
-              fontSize: 14,
+              fontSize: 16,
               cursor: "pointer",
               outline: "none",
             }}>
@@ -263,7 +263,7 @@ const AdminPage = () => {
                         <span style={{
                           display: "inline-block", padding: "3px 10px",
                           background: "rgba(196,162,44,.1)", border: "1px solid rgba(196,162,44,.22)",
-                          fontSize: 12, color: "var(--gold)", letterSpacing: ".04em",
+                          fontSize: 16, color: "var(--gold)", letterSpacing: ".04em",
                         }}>
                           {r.service}
                         </span>
@@ -271,18 +271,18 @@ const AdminPage = () => {
                     </div>
 
                     <div style={{ display: "flex", flexWrap: "wrap", gap: "4px 20px", marginBottom: r.comment ? 10 : 0 }}>
-                      <a href={`tel:${r.phone.replace(/\D/g,"")}`} style={{ fontSize: 15, color: "var(--gold)", textDecoration: "none" }}>
+                      <a href={`tel:${r.phone.replace(/\D/g,"")}`} style={{ fontSize: 16, color: "var(--gold)", textDecoration: "none" }}>
                         {r.phone}
                       </a>
                       {r.email && (
-                        <a href={`mailto:${r.email}`} style={{ fontSize: 14, color: "rgba(245,240,230,.4)", textDecoration: "none" }}>
+                        <a href={`mailto:${r.email}`} style={{ fontSize: 16, color: "rgba(245,240,230,.4)", textDecoration: "none" }}>
                           {r.email}
                         </a>
                       )}
                     </div>
 
                     {r.comment && (
-                      <div style={{ fontSize: 14, color: "rgba(245,240,230,.45)", lineHeight: 1.6, maxWidth: 600 }}>
+                      <div style={{ fontSize: 16, color: "rgba(245,240,230,.45)", lineHeight: 1.6, maxWidth: 600 }}>
                         {r.comment}
                       </div>
                     )}
@@ -290,7 +290,7 @@ const AdminPage = () => {
 
                   {/* Дата + кнопки действий */}
                   <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 12, minWidth: 160 }}>
-                    <div style={{ fontSize: 13, color: "rgba(245,240,230,.3)", letterSpacing: ".04em", whiteSpace: "nowrap" }}>
+                    <div style={{ fontSize: 16, color: "rgba(245,240,230,.3)", letterSpacing: ".04em", whiteSpace: "nowrap" }}>
                       {r.date}
                     </div>
 
@@ -301,7 +301,7 @@ const AdminPage = () => {
                         disabled={isProcessing}
                         style={{
                           padding: "6px 14px",
-                          fontSize: 13,
+                          fontSize: 16,
                           color: statusStyle.color,
                           background: statusStyle.bg,
                           border: `1px solid ${statusStyle.border}`,
@@ -321,7 +321,7 @@ const AdminPage = () => {
                         disabled={isProcessing}
                         style={{
                           padding: "6px 14px",
-                          fontSize: 13,
+                          fontSize: 16,
                           color: "rgba(245,240,230,.35)",
                           background: "transparent",
                           border: "1px solid rgba(245,240,230,.1)",
@@ -335,18 +335,18 @@ const AdminPage = () => {
                       </button>
                     ) : (
                       <div style={{ display: "flex", flexDirection: "column", gap: 6, alignItems: "flex-end" }}>
-                        <div style={{ fontSize: 13, color: "#e57373", marginBottom: 2 }}>Удалить заявку?</div>
+                        <div style={{ fontSize: 16, color: "#e57373", marginBottom: 2 }}>Удалить заявку?</div>
                         <div style={{ display: "flex", gap: 6 }}>
                           <button
                             onClick={() => deleteRow(r.id)}
                             disabled={isProcessing}
-                            style={{ padding: "5px 14px", fontSize: 13, color: "#e57373", background: "rgba(229,115,115,.12)", border: "1px solid rgba(229,115,115,.4)", cursor: "pointer" }}
+                            style={{ padding: "5px 14px", fontSize: 16, color: "#e57373", background: "rgba(229,115,115,.12)", border: "1px solid rgba(229,115,115,.4)", cursor: "pointer" }}
                           >
                             {isProcessing ? "..." : "Да, удалить"}
                           </button>
                           <button
                             onClick={() => setConfirmId(null)}
-                            style={{ padding: "5px 12px", fontSize: 13, color: "rgba(245,240,230,.45)", background: "transparent", border: "1px solid rgba(245,240,230,.15)", cursor: "pointer" }}
+                            style={{ padding: "5px 12px", fontSize: 16, color: "rgba(245,240,230,.45)", background: "transparent", border: "1px solid rgba(245,240,230,.15)", cursor: "pointer" }}
                           >
                             Отмена
                           </button>

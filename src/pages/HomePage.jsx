@@ -128,7 +128,7 @@ const HomePage = ({ setPage }) => {
             <h1 className="hero-v2__title">
               Точная
               <span className="line2"><em>—</em>&nbsp;оценка</span>
-              <span className="line3">для важных решений.</span>
+              <span className="line3">для важных решений</span>
             </h1>
           </div>
 
@@ -311,7 +311,7 @@ const HomePage = ({ setPage }) => {
           <div className="cta-v2__inner reveal-v2">
             <div className="cta-v2__lead">
               <div className="eyebrow-v2">Готовы начать?</div>
-              <h2>Оставьте заявку — <em>мы перезвоним</em><br />в течение пятнадцати минут.</h2>
+              <h2>Оставьте заявку — <em>мы перезвоним</em><br />в течение пятнадцати минут</h2>
             </div>
             <div className="cta-v2__side">
               <p>Расскажите о вашей задаче — мы подберём нужный вид оценки и озвучим точную стоимость. Принимаем заявки ежедневно, без выходных.</p>

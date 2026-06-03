@@ -1,7 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 
 const ApplicationPage = () => {
-  const [form, setForm] = useState({ name: "", phone: "", email: "", service: "", comment: "" });
+  const [form, setForm] = useState({
+    name: "", phone: "", email: "", service: "", comment: "",
+    agreePrivacy: false, agreeData: false,
+  });
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
@@ -12,6 +15,8 @@ const ApplicationPage = () => {
     if (!form.phone.trim() || form.phone.length < 10) e.phone = "Введите корректный номер";
     if (form.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = "Введите корректный email";
     if (!form.service) e.service = "Выберите услугу";
+    if (!form.agreePrivacy) e.agreePrivacy = "Необходимо согласие";
+    if (!form.agreeData)    e.agreeData    = "Необходимо согласие";
     return e;
   };
 
@@ -100,7 +105,7 @@ const ApplicationPage = () => {
               </p>
               <button
                 className="btn-v2 btn-v2--ghost"
-                onClick={() => { setSubmitted(false); setForm({ name: "", phone: "", email: "", service: "", comment: "" }); }}
+                onClick={() => { setSubmitted(false); setForm({ name: "", phone: "", email: "", service: "", comment: "", agreePrivacy: false, agreeData: false }); }}
               >
                 <span>Подать ещё заявку</span>
                 <Arrow />
@@ -152,12 +157,52 @@ const ApplicationPage = () => {
                   </div>
                 </div>
 
+                <div className="form-consents-v2">
+                  <label className={`form-checkbox-v2${errors.agreePrivacy ? " has-error" : ""}`}>
+                    <input
+                      type="checkbox"
+                      checked={form.agreePrivacy}
+                      onChange={e => { setForm({ ...form, agreePrivacy: e.target.checked }); setErrors({ ...errors, agreePrivacy: null }); }}
+                    />
+                    <span className="form-checkbox-v2__box" aria-hidden>
+                      <svg viewBox="0 0 12 10" fill="none">
+                        <path d="M1 5L4.5 8.5L11 1.5" stroke="currentColor" strokeWidth="2" strokeLinecap="square" strokeLinejoin="miter" />
+                      </svg>
+                    </span>
+                    <span className="form-checkbox-v2__text">
+                      Я принимаю{" "}
+                      <a href="/docs/privacy-policy.pdf" target="_blank" rel="noopener noreferrer">политику конфиденциальности</a>
+                      {" "}*
+                    </span>
+                  </label>
+
+                  <label className={`form-checkbox-v2${errors.agreeData ? " has-error" : ""}`}>
+                    <input
+                      type="checkbox"
+                      checked={form.agreeData}
+                      onChange={e => { setForm({ ...form, agreeData: e.target.checked }); setErrors({ ...errors, agreeData: null }); }}
+                    />
+                    <span className="form-checkbox-v2__box" aria-hidden>
+                      <svg viewBox="0 0 12 10" fill="none">
+                        <path d="M1 5L4.5 8.5L11 1.5" stroke="currentColor" strokeWidth="2" strokeLinecap="square" strokeLinejoin="miter" />
+                      </svg>
+                    </span>
+                    <span className="form-checkbox-v2__text">
+                      Согласен на{" "}
+                      <a href="/docs/data-processing.pdf" target="_blank" rel="noopener noreferrer">обработку персональных данных</a>
+                      {" "}*
+                    </span>
+                  </label>
+                </div>
+
                 <div className="form-submit-row">
                   <button className="btn-v2 btn-v2--gold" onClick={handleSubmit} disabled={loading}>
                     <span>{loading ? "Отправляем..." : "Отправить заявку"}</span>
                     {!loading && <Arrow />}
                   </button>
-                  <p>Нажимая кнопку, вы соглашаетесь с обработкой персональных данных</p>
+                  {(errors.agreePrivacy || errors.agreeData) && (
+                    <p style={{ color: "#C97070" }}>Подтвердите согласие с документами выше</p>
+                  )}
                 </div>
               </div>
 

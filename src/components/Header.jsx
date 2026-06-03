@@ -38,14 +38,14 @@ const Header = ({ page, setPage }) => {
             <div style={{ fontFamily: "'Jost',sans-serif", fontWeight: 600, fontSize: 17, letterSpacing: ".12em", textTransform: "uppercase", color: "var(--cream)" }}>
               КОРЭЛ
             </div>
-            <div style={{ fontFamily: "'Jost',sans-serif", fontWeight: 300, fontSize: 15, letterSpacing: ".18em", textTransform: "uppercase", color: "rgba(245,240,230,.45)", marginTop: 2 }}>
+            <div style={{ fontFamily: "'Jost',sans-serif", fontWeight: 300, fontSize: 16, letterSpacing: ".18em", textTransform: "uppercase", color: "rgba(245,240,230,.45)", marginTop: 2 }}>
               Независимая оценка
             </div>
           </div>
         </button>
 
         {/* Десктопная навигация */}
-        <nav className="header-nav-desktop" style={{ display: "flex", alignItems: "center", gap: 36 }}>
+        <nav className="header-nav-desktop">
           {navItems.slice(0, 2).map(([p, l]) => (
             <button key={p} className={`nav-link${page === p ? " active" : ""}`} onClick={() => navigate(p)}>
               {l}
@@ -90,7 +90,7 @@ const Header = ({ page, setPage }) => {
           <a href="tel:+79051011881" style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 28, fontWeight: 300, color: "var(--gold)", textDecoration: "none" }}>
             +7 (905) 101-18-81
           </a>
-          <div style={{ fontSize: 14, color: "rgba(245,240,230,.4)", marginTop: 6 }}>Ежедневно 7:00 – 21:00</div>
+          <div style={{ fontSize: 16, color: "rgba(245,240,230,.4)", marginTop: 6 }}>Ежедневно 7:00 – 21:00</div>
         </div>
       </div>
 

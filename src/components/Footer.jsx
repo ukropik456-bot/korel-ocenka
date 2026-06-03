@@ -61,7 +61,21 @@ const Footer = ({ setPage }) => (
       </div>
 
       <div className="footer-v2__bottom">
-        <span>© 2026 КОРЭЛ. Все права защищены.</span>
+        <span>© 2026 КОРЭЛ. Все права защищены</span>
+        <span className="footer-v2__docs">
+          <a href="/docs/privacy-policy.pdf" target="_blank" rel="noopener noreferrer">
+            Политика конфиденциальности
+            <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden style={{ marginLeft: 6, verticalAlign: "middle" }}>
+              <path d="M3 1H10V8M10 1L1 10" stroke="currentColor" strokeWidth="1.2" strokeLinecap="square" />
+            </svg>
+          </a>
+          <a href="/docs/data-processing.pdf" target="_blank" rel="noopener noreferrer">
+            Обработка персональных данных
+            <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden style={{ marginLeft: 6, verticalAlign: "middle" }}>
+              <path d="M3 1H10V8M10 1L1 10" stroke="currentColor" strokeWidth="1.2" strokeLinecap="square" />
+            </svg>
+          </a>
+        </span>
         <span>СРО: АО «Российское общество оценщиков»</span>
       </div>
     </div>
